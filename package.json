@@ -2,9 +2,12 @@
   "name": "cream",
   "version": "1.0.0",
   "description": "Cache rules everything around me",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ./src --ext .json --ext .js",
+    "migrations": "knex --knexfile=./src/knexfile.js migrate:latest",
+    "start": "node ./src/index.js",
+    "watch": "nodemon --inspect ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,16 @@
   },
   "homepage": "https://github.com/zachelrath/cream#readme",
   "dependencies": {
-    "hapi": "^17.5.2"
+    "handlebars": "^4.0.11",
+    "hapi": "^17.5.2",
+    "inert": "^5.1.0",
+    "knex": "^0.13.0",
+    "pg": "^7.3.0",
+    "vision": "^5.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "eslint-plugin-json": "^1.2.0",
+    "nodemon": "^1.18.3"
   }
 }
